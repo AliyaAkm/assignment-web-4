@@ -5,19 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KinoTime</title>
     <link rel="icon" href="img/cinema.png" type="image/x-icon">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style_releases.css">
 </head>
 <body>
-<header id="header">
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="review.html">Reviews</a></li>
-            <li><a href="releases.html">Upcoming Releases</a></li>
-            <li><a href="contact.html">Contact</a></li>
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <a class="navbar-brand" href="index.html" style="color: grey;">KinoTime</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html" style="color: grey;">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="review.html" style="color: grey;">Reviews</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="releases.html" style="color: grey;">Upcoming Releases</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html" style="color: grey;">Contact</a>
+            </li>
         </ul>
-    </nav>
-</header>
+    </div>
+</nav>
 
 <main>
     <section class="releases">
@@ -117,6 +130,7 @@
         </ul>
     </section>
 
+
     <section class="number-sorter">
         <h2>Number Sorting Tool</h2>
         <form id="sortForm">
@@ -156,7 +170,7 @@
         const order = document.getElementById('order').value;
         const resultDiv = document.getElementById('result');
 
-        // Валидация ввода
+
         const numbersArray = numbersInput.split(',').map(num => num.trim()).filter(num => !isNaN(num) && num !== '');
 
         if (numbersArray.length === 0) {
@@ -174,8 +188,10 @@
             numericArray.sort((a, b) => b - a);
         }
 
+
         resultDiv.innerHTML = `<p>Sorted Numbers: ${numericArray.join(', ')}</p>`;
     });
+
 
     const changeColorBtn = document.getElementById('changeColorBtn');
     const colors = ['#ff9999', '#99ff99', '#9999ff', '#ffff99', '#ffcc99'];
@@ -187,4 +203,31 @@
     });
 </script>
 </body>
-</html>
+<script>
+    /* keydown*/
+    document.addEventListener('keydown', (event) => {
+        const key = event.key;
+
+        switch (key) {
+            case '1':
+
+                window.location.href = 'index.html';
+                break;
+            case '2':
+
+                window.location.href = 'review.html';
+                break;
+            case '3':
+
+                window.location.href = 'releases.html';
+                break;
+            case '4':
+
+                window.location.href = 'contact.html';
+                break;
+            default:
+                break;
+        }
+    });
+</script>
+</html>3

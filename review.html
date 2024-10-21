@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +14,19 @@
             opacity: 0.7;
             transition: all 0.3s ease;
         }
+        .star {
+            font-size: 24px;
+            cursor: pointer;
+            color: gold;
+            padding: 0 5px;
+        }
+
+        .star:hover {
+            color: darkorange;
+        }
+         .movie-description {
+             display: none; /* Скрываем описание по умолчанию */
+         }
     </style>
 </head>
 <body>
@@ -152,31 +165,68 @@
             <a href="https://www.kinopoisk.ru/film/401177/?utm_referrer=www.google.com" target="_blank">
                 <img src="https://upload.wikimedia.org/wikipedia/ru/6/63/%D0%A1%D1%83%D0%BC%D0%B5%D1%80%D0%BA%D0%B8_%28%D1%84%D0%B8%D0%BB%D1%8C%D0%BC%2C_2008%29.jpg" alt="Twilight" class="movie-poster card-img-top">
             </a>
-            <p class="movie-description">"Twilight" - Seventeen-year-old Bella moves to her father in the small town of Forks. She falls in love with a mysterious classmate who, as it turns out, comes from a family of vampires who have abandoned attacks on people.</p>
+            <p class="movie-description">"Twilight": A vampire and a girl fall in love, facing all the challenges that arise in their path.</p>
+            <button class="read-more">Read More</button>
+            <div class="star-rating">
+                <span class="star" data-value="1">☆</span>
+                <span class="star" data-value="2">☆</span>
+                <span class="star" data-value="3">☆</span>
+                <span class="star" data-value="4">☆</span>
+                <span class="star" data-value="5">☆</span>
+            </div>
+
         </div>
         <div class="card text-center">
             <h3>Stranger Things</h3>
             <a href="https://www.kinopoisk.ru/series/915196/" target="_blank">
                 <img src="https://upload.wikimedia.org/wikipedia/ru/b/b1/Stranger_Things_season_1.jpg" alt="Stranger Things" class="movie-poster card-img-top">
             </a>
-            <p class="movie-description">"Stranger Things" is an American science fiction and horror drama television series created by the Duffer brothers for the online streaming service Netflix.</p>
+            <p class="movie-description">"Stranger Things": Teenagers investigate supernatural events in their town.</p>
+            <button class="read-more">Read More</button>
+            <div class="star-rating">
+                <span class="star" data-value="1">☆</span>
+                <span class="star" data-value="2">☆</span>
+                <span class="star" data-value="3">☆</span>
+                <span class="star" data-value="4">☆</span>
+                <span class="star" data-value="5">☆</span>
+            </div>
+
         </div>
         <div class="card text-center">
             <h3>Money Heist</h3>
             <a href="https://www.kinopoisk.ru/series/1046206/" target="_blank">
                 <img src="https://avatars.mds.yandex.net/get-kinopoisk-image/6201401/8472ca52-2751-4bbe-9a08-8a1be75f93d5/600x900" alt="Money Heist" class="movie-poster card-img-top">
             </a>
-            <p class="movie-description">"Money Heist" is a Spanish crime drama television series about a heist created by Álex Pina.</p>
+            <p class="movie-description">"Money Heist": A group of criminals plans a grand heist to change their lives forever.</p>
+            <button class="read-more">Read More</button>
+            <div class="star-rating">
+                <span class="star" data-value="1">☆</span>
+                <span class="star" data-value="2">☆</span>
+                <span class="star" data-value="3">☆</span>
+                <span class="star" data-value="4">☆</span>
+                <span class="star" data-value="5">☆</span>
+            </div>
+
         </div>
         <div class="card text-center">
             <h3>Sherlock</h3>
             <a href="https://www.kinopoisk.ru/series/502838/" target="_blank">
                 <img src="https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/f28c1ea2-47b0-49d5-b11c-9608744f0233/220x330" alt="Sherlock" class="movie-poster card-img-top">
             </a>
-            <p class="movie-description">"Sherlock" is a British crime drama television series based on Sir Arthur Conan Doyle's Sherlock Holmes detective stories.</p>
+            <p class="movie-description">"Sherlock": A brilliant detective solves complex crimes using his keen insight and logic</p>
+            <button class="read-more">Read More</button>
+            <div class="star-rating">
+                <span class="star" data-value="1">☆</span>
+                <span class="star" data-value="2">☆</span>
+                <span class="star" data-value="3">☆</span>
+                <span class="star" data-value="4">☆</span>
+                <span class="star" data-value="5">☆</span>
+            </div>
+
         </div>
     </div>
 </section>
+
 <section id="todo-list" class="container my-5">
     <h2 class="text-center">To-Do List</h2>
     <div class="input-group mb-3">
@@ -190,81 +240,7 @@
 
 <button onclick="startGuessingGame()" class="btn btn-info my-3 mx-5">Play Number Guessing Game</button>
 
-<script>
-    // to do list
-    function addTask() {
-        const taskInput = document.getElementById('taskInput');
-        const taskText = taskInput.value.trim();
-
-        if (taskText === '') {
-            alert("Please enter a task.");
-            return;
-        }
-
-        const li = document.createElement('li');
-        li.className = 'list-group-item d-flex justify-content-between align-items-center';
-
-        li.innerHTML = `<span onclick="toggleTask(this)" style="cursor: pointer;">${taskText}</span>
-                        <button onclick="removeTask(this)" class="btn btn-danger btn-sm">Delete</button>`;
-
-        document.getElementById('taskList').appendChild(li);
-        taskInput.value = '';
-    }
-
-    function removeTask(button) {
-        const task = button.parentElement;
-        document.getElementById('taskList').removeChild(task);
-    }
-
-    function toggleTask(taskElement) {
-        taskElement.classList.toggle('completed');
-    }
-
-// game
-    function startGuessingGame() {
-        const randomNumber = Math.floor(Math.random() * 100) + 1;
-        let attempts = 0;
-        let guess;
-        let gameCanceled = false; // Переменная для отслеживания отмены игры
-
-        do {
-            const userInput = prompt("Guess a number between 1 and 100:");
-
-            // Проверка на "Отмена"
-            if (userInput === null) {
-                alert("Game canceled.");
-                gameCanceled = true; // Устанавливаем флаг отмены
-                break; // Прерываем цикл
-            }
-
-            // Преобразуем введенные данные в число
-            guess = parseInt(userInput, 10);
-            attempts++;
-
-            // Проверка введенного числа
-            if (guess > randomNumber) {
-                alert("Too high! Try again.");
-            } else if (guess < randomNumber) {
-                alert("Too low! Try again.");
-            } else if (guess === randomNumber) {
-                alert(`Congratulations! You guessed the number ${randomNumber} in ${attempts} attempts.`);
-                break; // Выходим из цикла, так как угадали число
-            } else {
-                alert("Please enter a valid number.");
-            }
-
-        } while (guess !== randomNumber && !gameCanceled); // Выходим из цикла, если число угадано или игра отменена
-
-        // Проверка перед выводом сообщения о победе
-        if (!gameCanceled && guess === randomNumber) {
-            alert(`Congratulations! You guessed the correct number in ${attempts} attempts.`);
-        }
-    }
-
-</script>
-
-
-
+<script src="review.js"></script>
 <footer>
     <div class="footer-content text-center">
         <p>© 2024 KinoTime. Created by:</p>
@@ -274,7 +250,45 @@
         </ul>
     </div>
 </footer>
+<script>
+    let index = 0;
+    let items = document.querySelectorAll('.carousel-item');
 
+    function showNextImage() {
+        items[index].style.display = 'none';
+        index = (index + 1) % items.length;
+        items[index].style.display = 'block';
+    }
+
+    setInterval(showNextImage, 2000); // Change image every 3 seconds
+</script>
+<script>
+    /* keydown*/
+    document.addEventListener('keydown', (event) => {
+        const key = event.key;
+
+        switch (key) {
+            case '1':
+
+                window.location.href = 'index.html';
+                break;
+            case '2':
+
+                window.location.href = 'review.html';
+                break;
+            case '3':
+
+                window.location.href = 'releases.html';
+                break;
+            case '4':
+
+                window.location.href = 'contact.html';
+                break;
+            default:
+                break;
+        }
+    });
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

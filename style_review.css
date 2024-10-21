@@ -1,4 +1,39 @@
+h1 {
+    color: #333; /* Выравнивание заголовка по центру */
+}
 
+#timeButton {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-bottom: 20px; /* Отступ снизу для разделения с блоком времени */
+}
+
+#timeButton:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#timeDisplay {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #555;
+    padding: 10px;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Скрываем блок изначально */
+    visibility: hidden; /* Скрываем видимость */
+    transition: opacity 0.3s, visibility 0.3s;
+    text-align: center; /* Выравнивание текста по центру */
+}
 section {
     padding: 20px;
     text-align: center;
@@ -6,7 +41,7 @@ section {
 }
 
 section h1{
-    color:#555
+    color:#333;
 }
 
 .movie-container {
